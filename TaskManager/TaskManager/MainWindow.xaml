@@ -1,0 +1,62 @@
+﻿<Window x:Class="TaskManager.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TaskManager"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="510">
+    <Grid Margin="0,0,0,-1">
+        <Border>
+            <ListView Name="listOfProcesses" Height="390"  Width="480" Margin="2,0,10,31">
+                <ListView.View>
+                    <GridView>
+                        <GridView.Columns>
+                            <GridViewColumn DisplayMemberBinding="{Binding name}">
+                                <GridViewColumn.Header>
+                                    <GridViewColumnHeader Tag="Имя">Имя</GridViewColumnHeader>
+                                </GridViewColumn.Header>
+                            </GridViewColumn>
+                            <GridViewColumn DisplayMemberBinding="{Binding id}">
+                                <GridViewColumn.Header>
+                                    <GridViewColumnHeader Tag="ID" >ID</GridViewColumnHeader>
+                                </GridViewColumn.Header>
+                            </GridViewColumn>
+                            <GridViewColumn DisplayMemberBinding="{Binding user}">
+                                <GridViewColumn.Header>
+                                    <GridViewColumnHeader Tag="Пользователь" >Пользователь</GridViewColumnHeader>
+                                </GridViewColumn.Header>
+                            </GridViewColumn>
+                            <GridViewColumn DisplayMemberBinding="{Binding memory}">
+                                <GridViewColumn.Header>
+                                    <GridViewColumnHeader Tag="Память" >Память</GridViewColumnHeader>
+                                </GridViewColumn.Header>
+                            </GridViewColumn>
+                            <GridViewColumn DisplayMemberBinding="{Binding priority}">
+                                <GridViewColumn.Header>
+                                    <GridViewColumnHeader Tag="Приоритет">Приоритет</GridViewColumnHeader>
+                                </GridViewColumn.Header>
+                            </GridViewColumn>
+                            <GridViewColumn DisplayMemberBinding="{Binding threads}">
+                                <GridViewColumn.Header>
+                                    <GridViewColumnHeader Tag="Потоки">Потоки</GridViewColumnHeader>
+                                </GridViewColumn.Header>
+                            </GridViewColumn>
+                        </GridView.Columns>
+                    </GridView>
+                </ListView.View>
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <EventSetter Event="PreviewMouseLeftButtonDown" Handler="ListViewItem_PreviewMouseLeftButtonDown" />
+                    </Style>
+                </ListView.ItemContainerStyle>
+            </ListView>
+        </Border>
+        <WrapPanel VerticalAlignment="Bottom" Margin="0,0,0,10">
+            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Text="Всего процессов: "/>
+            <TextBlock Name="AllProcess"/>
+        </WrapPanel>
+
+
+    </Grid>
+</Window>

@@ -1,0 +1,29 @@
+﻿<Window x:Class="TaskManager.ProcessThreads"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TaskManager"
+        mc:Ignorable="d"
+        Title="ProcessThreads" Height="350" Width="250">
+    <Grid>
+        <ListView Name="listOfThreads" HorizontalAlignment="Left" Height="310" VerticalAlignment="Top" Width="230">
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn DisplayMemberBinding="{Binding id}">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Tag="ID">ID</GridViewColumnHeader>
+                            </GridViewColumn.Header>
+                        </GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding priority}">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Tag="Приоритет" >Приоритет</GridViewColumnHeader>
+                            </GridViewColumn.Header>
+                        </GridViewColumn>
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>
